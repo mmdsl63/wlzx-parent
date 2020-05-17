@@ -1,0 +1,58 @@
+# 端口号
+server:
+  port: ${PORT:31001}
+---
+# jdbc
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/wlzx_cms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  rabbitmq:
+    host: 192.168.11.128
+    username: guest
+    password: guest
+---
+# mybatis plus
+mybatis-plus:
+  # 关联映射配置文件
+  mapper-locations: classpath:mapper/*.xml
+  # 配置
+  configuration:
+    # 控制台打印日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 驼峰命名
+    map-underscore-to-camel-case: true
+    # 关闭缓存
+    cache-enabled: false
+  # 全局设置
+  global-config:
+    db-config:
+      # id 为 uuid
+      id-type: uuid
+---
+fdfs:
+  pool:
+    ## 连接池最大数量
+    max-total: 200
+    ## 每个tracker地址的最大连接数
+    max-total-per-key: 50
+    ## 连接耗尽时等待获取连接的最大毫秒数
+    max-wait-millis: 5000
+    testOnBorrow: false
+  soTimeout: 1500 #socket连接超时时长
+  connectTimeout: 600 #连接tracker服务器超时时长
+  resHost: 192.168.11.128
+  storagePort: 5000
+  thumbImage: #缩略图生成参数，可选
+    width: 150
+    height: 150
+  trackerList: #TrackerList参数,支持多个，我这里只有一个，如果有多个在下方加- x.x.x.x:port
+    - 192.168.11.128:22122
+---
+wlzx:
+  mq:
+    queue: queue
+    exchange: exchange
+    routingKey: routingKey

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="net.wanho.mapper.CategoryMapper">
+
+    <resultMap id="categoryNodeMap" type="net.wanho.po.course.ext.CategoryNode">
+        <id column="c1_id" property="id"/>
+        <result column="c1_name" property="name"/>
+        <result column="c1_label" property="label"/>
+        <result column="c1_parentid" property="parentid"/>
+        <result column="c1_isshow" property="isshow"/>
+        <result column="c1_orderby" property="orderby"/>
+        <result column="c1_isleaf" property="isleaf"/>
+        <collection property="children" ofType="net.wanho.po.course.ext.CategoryNode">
+            <id column="c2_id" property="id"/>
+            <result column="c2_name" property="name"/>
+            <result column="c2_label" property="label"/>
+            <result column="c2_parentid" property="parentid"/>
+            <result column="c2_isshow" property="isshow"/>
+            <result column="c2_orderby" property="orderby"/>
+            <result column="c2_isleaf" property="isleaf"/>
+            <collection property="children" ofType="net.wanho.po.course.ext.CategoryNode">
+                <id column="c3_id" property="id"/>
+                <result column="c3_name" property="name"/>
+                <result column="c3_label" property="label"/>
+                <result column="c3_parentid" property="parentid"/>
+                <result column="c3_isshow" property="isshow"/>
+                <result column="c3_orderby" property="orderby"/>
+                <result column="c3_isleaf" property="isleaf"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="findList" resultMap="categoryNodeMap">
+        SELECT
+            c1.id c1_id,
+            c1.name c1_name,
+            c1.label c1_label,
+            c1.parentid c1_parentid,
+            c1.isshow c1_isshow,
+            c1.orderby c1_orderby,
+            c1.isleaf c1_isleaf,
+
+            c2.id c2_id,
+            c2.name c2_name,
+            c2.label c2_label,
+            c2.parentid c2_parentid,
+            c2.isshow c2_isshow,
+            c2.orderby c2_orderby,
+            c2.isleaf c2_isleaf,
+
+            c3.id c3_id,
+            c3.name c3_name,
+            c3.label c3_label,
+            c3.parentid c3_parentid,
+            c3.isshow c3_isshow,
+            c3.orderby c3_orderby,
+            c3.isleaf c3_isleaf
+        FROM category c1
+        LEFT JOIN category c2
+        ON c1.id = c2.parentid
+        LEFT JOIN category c3
+        ON c2.id = c3.parentid
+        WHERE c1.parentid = '0'
+        ORDER BY c1.orderby, c2.orderby, c3.orderby
+    </select>
+    
+</mapper>

@@ -1,0 +1,29 @@
+# 端口号
+server:
+  port: ${PORT:31200}
+---
+# jdbc
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/wlzx_course?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+---
+# mybatis plus
+mybatis-plus:
+  # 关联映射配置文件
+  mapper-locations: classpath:mapper/*.xml
+  # 配置
+  configuration:
+    # 控制台打印日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 驼峰命名
+    map-underscore-to-camel-case: true
+    # 关闭缓存
+    cache-enabled: false
+  # 全局设置
+  global-config:
+    db-config:
+      # id 为 uuid
+      id-type: uuid
