@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wlzx-service-api" />
+        <module name="wlzx-service-manage-course" />
+        <module name="wlzx-service-filesystem" />
+        <module name="demo-rabbitmq" />
+        <module name="wlzx-common" />
+        <module name="demo-fastdfs" />
+        <module name="demo-freemark" />
+        <module name="wlzx-po" />
+        <module name="wlzx-service-manage-cms" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wlzx-service-manage-site" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo-fastdfs" options="-parameters" />
+      <module name="demo-freemark" options="-parameters" />
+      <module name="demo-rabbitmq" options="-parameters" />
+      <module name="wlzx-common" options="-parameters" />
+      <module name="wlzx-po" options="-parameters" />
+      <module name="wlzx-service-api" options="-parameters" />
+      <module name="wlzx-service-filesystem" options="-parameters" />
+      <module name="wlzx-service-manage-cms" options="-parameters" />
+      <module name="wlzx-service-manage-course" options="-parameters" />
+      <module name="wlzx-service-manage-site" options="-parameters" />
+    </option>
+  </component>
+</project>

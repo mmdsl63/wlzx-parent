@@ -16,10 +16,11 @@ import javax.annotation.Resource;
 @Service
 public class CategoryService extends ServiceImpl<CategoryMapper, CategoryNode> {
 
-    @Resource
-    private CategoryMapper mapper;
-
+    /**
+     * 课程分类
+     * @return
+     */
     public CategoryNode findList() {
-        return mapper.findList();
+        return baseMapper.findList();
     }
 }

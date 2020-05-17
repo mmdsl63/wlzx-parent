@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/demo-fastdfs/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-freemark/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-rabbitmq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-rabbitmq/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wlzx-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wlzx-po/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wlzx-service-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wlzx-service-filesystem/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wlzx-service-manage-cms/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wlzx-service-manage-course/src/main/java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

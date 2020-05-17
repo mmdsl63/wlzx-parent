@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="net.wanho.mapper.SysDictionaryMapper">
+
+    <resultMap id="sysDictionaryMapper" type="net.wanho.po.system.SysDictionary">
+        <id column="id" property="id"/>
+        <collection property="dValue" column="id" ofType="net.wanho.po.system.SysDictionaryValue"
+                    select="getLeavleByDictionaryId"/>
+    </resultMap>
+
+    <select id="getLeavleByDictionaryId" resultType="net.wanho.po.system.SysDictionaryValue">
+        select sd_id, sd_name, sd_status from sys_dictionary_value
+        <where>
+            <if test="id != null and id != ''">
+                d_id = #{id}
+            </if>
+        </where>
+    </select>
+    
+    <select id="getByType" resultMap="sysDictionaryMapper">
+        SELECT id FROM sys_dictionary
+        <where>
+            <if test="type != null and type != ''">
+                d_type = #{type}
+            </if>
+        </where>
+    </select>
+
+</mapper>

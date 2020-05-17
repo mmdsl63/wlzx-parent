@@ -24,6 +24,7 @@
         <module>demo-fastdfs</module>
         <module>demo-rabbitmq</module>
         <module>wlzx-service-manage-course</module>
+        <module>wlzx-service-filesystem</module>
     </modules>
     <packaging>pom</packaging>
 

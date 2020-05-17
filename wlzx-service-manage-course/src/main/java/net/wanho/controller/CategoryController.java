@@ -23,6 +23,10 @@ public class CategoryController extends BaseController implements CategoryContro
     @Resource
     private CategoryService service;
 
+    /**
+     * 课程分类
+     * @return
+     */
     @Override
     @GetMapping("/list")
     public CategoryNode findList() {
